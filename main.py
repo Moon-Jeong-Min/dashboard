@@ -21,5 +21,8 @@ def main():
     ranged_df = ranged_df.reset_index(drop=True)
     st.table(ranged_df)
 
+    st.subheader('주가 변동 차트')
+    st.line_chart(ranged_df.set_index('Date')['Close'])
+
 if __name__ == '__main__':
     main()
