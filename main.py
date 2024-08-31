@@ -21,11 +21,14 @@ def main():
     ranged_df = ranged_df.reset_index(drop=True)
     st.table(ranged_df.head())
 
-    st.subheader('거래량 변동 차트')
-    st.line_chart(ranged_df.set_index('Date')['Volume'])
-
-    st.subheader('주가 변동 차트')
-    st.line_chart(ranged_df.set_index('Date')['Close'])
+    with st.container(border=True):
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader('주가 변동 차트')
+            st.line_chart(ranged_df.set_index('Date')['Close'])
+        with col2:
+            st.subheader('거래량 변동 차트')
+            st.line_chart(ranged_df.set_index('Date')['Volume'])
 
 if __name__ == '__main__':
     main()
