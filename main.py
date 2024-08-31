@@ -19,7 +19,7 @@ def main():
     ranged_df = df[(df['Date'] >= pd.to_datetime(start_date)) &
                     (df['Date'] <= pd.to_datetime(end_date))]
     ranged_df = ranged_df.reset_index(drop=True)
-    st.table(ranged_df)
+    st.table(ranged_df.head())
 
 if __name__ == '__main__':
     main()
