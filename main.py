@@ -21,5 +21,9 @@ def main():
     ranged_df = ranged_df.reset_index(drop=True)
     st.table(ranged_df)
 
+    # 라인 차트: 주가 변동 (종가 기준)
+    st.subheader('거래량 변동 차트')
+    st.line_chart(ranged_df.set_index('Date')['Volume'])
+
 if __name__ == '__main__':
     main()
